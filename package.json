@@ -1,0 +1,40 @@
+{
+  "name": "@project-nos/spryker-decorators",
+  "description": "N/A",
+  "license": "MIT",
+  "author": "Andreas Penz",
+  "type": "module",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/project-nos/spryker-decorators.git"
+  },
+  "bugs": {
+    "url": "https://github.com/project-nos/spryker-decorators/issues"
+  },
+  "scripts": {
+    "lint:check": "eslint \"**/*.{js,ts}\"",
+    "lint:fix": "eslint . --fix \"**/*.{js,ts}\"",
+    "format:check": "prettier \"**/*.{js,ts}\" --check",
+    "format:fix": "prettier \"**/*.{js,ts}\" --write",
+    "build": "tsc --build tsconfig.build.json",
+    "build:watch": "tsc --build tsconfig.build.json --watch",
+    "clean": "tsc --build --clean tsconfig.build.json",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "@project-nos/decorators": "^1.0.0-rc.3"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
+    "eslint": "^8.53.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-license-header": "^0.6.0",
+    "prettier": "^3.1.0",
+    "typescript": "^5.2.2"
+  }
+}

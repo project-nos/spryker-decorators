@@ -1,0 +1,45 @@
+{
+  "env": {
+    "commonjs": true,
+    "es6": false,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "eslint-plugin-import",
+    "license-header"
+  ],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": ["error", {
+      "varsIgnorePattern": "_"
+    }],
+    "import/extensions": [
+      "error",
+      "always"
+    ],
+    "import/order": [
+      "error"
+    ],
+    "license-header/header": [
+      "error",
+      [
+        "/**",
+        " * Copyright (c) Andreas Penz",
+        " *",
+        " * This source code is licensed under the MIT license found in the",
+        " * LICENSE file in the root directory of this source tree.",
+        " */"
+      ]
+    ]
+  }
+}

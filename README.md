@@ -1,1 +1,1 @@
-# spryker-decorators
+# NOS spryker decorators
