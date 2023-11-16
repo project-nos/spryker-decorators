@@ -16,6 +16,19 @@
   "bugs": {
     "url": "https://github.com/project-nos/spryker-decorators/issues"
   },
+  "keywords": [
+    "spryker",
+    "custom elements",
+    "customelements",
+    "custom-elements",
+    "web components",
+    "webcomponents",
+    "web-components",
+    "component",
+    "modules",
+    "util",
+    "typescript"
+  ],
   "scripts": {
     "lint:check": "eslint \"**/*.{js,ts}\"",
     "lint:fix": "eslint . --fix \"**/*.{js,ts}\"",
