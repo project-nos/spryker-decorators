@@ -9,9 +9,7 @@ import { initializeActionable, observeActionable } from '@project-nos/decorators
 import { ComponentConstructor } from './component.js';
 
 export const actionable = (): any => {
-    return (...args: any[]) => {
-        const [target, context] = args as [ComponentConstructor, ClassDecoratorContext];
-
+    return (target: ComponentConstructor, context: ClassDecoratorContext) => {
         if (context.kind !== 'class') {
             throw new TypeError('The @actionable decorator is for use on classes only.');
         }

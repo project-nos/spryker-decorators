@@ -16,11 +16,7 @@ import {
 import { ComponentConstructor } from './component.js';
 
 export const controllable = (): any => {
-    return (...args: any[]) => {
-        const [target, context] = args as [
-            target: ComponentConstructor,
-            context: ControllableDecoratorContext<ComponentConstructor>,
-        ];
+    return (target: ComponentConstructor, context: ControllableDecoratorContext<ComponentConstructor>) => {
         const { metadata } = context;
 
         return class extends target {

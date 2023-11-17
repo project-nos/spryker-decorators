@@ -10,13 +10,13 @@ import {
     initializeTargetable,
     initializeTargets,
     TargetDecoratorContext,
+    TargetsDecoratorContext,
+    TargetableDecoratorContext,
 } from '@project-nos/decorators';
 import { Component, ComponentConstructor } from './component.js';
 
 export const target = (): any => {
-    return (...args: any) => {
-        const [_, context] = args as [unknown, TargetDecoratorContext<Component, Element | undefined>];
-
+    return (_: unknown, context: TargetDecoratorContext<Component, Element | undefined>) => {
         if (context.kind !== 'accessor') {
             throw new TypeError('The @target decorator is for use on accessors only.');
         }
@@ -26,9 +26,7 @@ export const target = (): any => {
 };
 
 export const targets = (): any => {
-    return (...args: any) => {
-        const [_, context] = args as [unknown, TargetDecoratorContext<Component, Element[]>];
-
+    return (_: unknown, context: TargetsDecoratorContext<Component, Element[]>) => {
         if (context.kind !== 'accessor') {
             throw new TypeError('The @targets decorator is for use on accessors only.');
         }
@@ -38,8 +36,7 @@ export const targets = (): any => {
 };
 
 export const targetable = (): any => {
-    return (...args: any[]) => {
-        const [target, context] = args as [ComponentConstructor, ClassDecoratorContext];
+    return (target: ComponentConstructor, context: TargetableDecoratorContext<ComponentConstructor>) => {
         const { metadata } = context;
 
         if (context.kind !== 'class') {

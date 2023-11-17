@@ -11,15 +11,14 @@ import {
     AttributeOptions,
     AttributeDecoratorContext,
     initializeAttribute,
+    AttributableDecoratorContext,
 } from '@project-nos/decorators';
 import { Component, ComponentConstructor } from './component.js';
 
 export const attribute = (options: AttributeOptions): any => {
-    return (...args: any[]) => {
-        const [_, context] = args as [unknown, AttributeDecoratorContext<Component, unknown>];
-
-        if (context.kind !== 'accessor') {
-            throw new TypeError('The @attribute decorator is for use on accessors only.');
+    return (_: unknown, context: AttributeDecoratorContext<Component, any>) => {
+        if (context.kind !== 'accessor' && context.kind !== 'setter') {
+            throw new Error('The @attribute decorator is for use on accessors and setters only.');
         }
 
         initializeAttribute(context, options);
@@ -27,8 +26,7 @@ export const attribute = (options: AttributeOptions): any => {
 };
 
 export const attributable = (): any => {
-    return (...args: any[]) => {
-        const [target, context] = args as [ComponentConstructor, ClassDecoratorContext];
+    return (target: ComponentConstructor, context: AttributableDecoratorContext<ComponentConstructor>) => {
         const { metadata } = context;
 
         if (context.kind !== 'class') {
