@@ -36,7 +36,7 @@ export const attributable = (): any => {
         return class extends target {
             constructor(...args: any[]) {
                 super(args);
-                initializeAttributable(this, context);
+                initializeAttributable(this, metadata);
             }
 
             mountCallback() {
